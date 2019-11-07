@@ -8,16 +8,78 @@ img.social-media-link {
     margin-bottom: 8px;
 }
 
-p {
+/* p {
     text-align: center;
-}
+} */
 
 .footer-text {
     font-size: 12px;
+    text-align: center;
 }
 
 path {
     fill: white;
+    stroke: #000000;
+    stroke-width: "0.7998829988299883";
+    stroke-opacity: "1";
+}
+
+#country_details {
+    background-color: #ffcb9b;
+    width: 250px;
+    height: 350px;
+    /* left : left;
+    top : top; */
+}
+
+#book_img {
+    height: 40%;
+    width: 35%;
+    float: left;
+    padding: 15px;
+    border: 1px solid blue;
+}
+
+#book_metadata {
+    height: 40%;
+    width: 65%;
+    float: left;
+    padding: 15px;
+    border: 1px solid green;
+}
+
+#book_review {
+    height: 10%;
+    width: 100%;
+    float: left;
+    padding: 0px;
+    border: 1px solid orange;
+}
+
+#goodreads_link_div {
+    float: left;
+    border: 1px solid black;
+    width: 35%;
+}
+
+#reading_status_div {
+    float: left;
+    border: 1px solid black;
+    width: 32%;
+}
+
+#rating_div {
+    float: left;
+    border: 1px solid black;
+    width: 33%;
+}
+
+#book_summary {
+    height: 50%;
+    width: 100%;
+    float: left;
+    padding: 15px;
+    border: 1px solid yellow;
 }
 
 /* body {
