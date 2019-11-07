@@ -44,46 +44,45 @@ path {
     height: 40%;
     width: 65%;
     float: left;
-    padding: 15px;
+    padding-top: 10px;
     border: 1px solid green;
 }
 
-#book_review {
-    height: 10%;
-    width: 100%;
-    float: left;
-    padding: 0px;
-    border: 1px solid orange;
+#country_name {
+    font-size: 10px;
+    padding-left: 10px;
 }
 
-#goodreads_link_div {
-    float: left;
-    border: 1px solid black;
-    width: 35%;
+#book_title {
+    font-size: 12px;
+    padding-left: 10px;
+    font-weight: bold;
 }
 
-#reading_status_div {
-    float: left;
-    border: 1px solid black;
-    width: 32%;
+#book_author {
+    padding-left: 10px;
+    font-size: 10px;
 }
 
 #rating_div {
     float: left;
-    border: 1px solid black;
-    width: 33%;
+    font-size: 8px;
+    padding-left: 10px;
+}
+
+#avg_rating {
+    font-size: 10px;
+    padding-left: 2px;
 }
 
 #book_summary {
-    height: 50%;
+    height: 60%;
     width: 100%;
     float: left;
     padding: 15px;
     border: 1px solid yellow;
 }
 
-/* body {
-    background: #222222 !important;
-    color: #EEEEEE" ;
-
-} */
+.checked_star {
+    color: orange;
+}
