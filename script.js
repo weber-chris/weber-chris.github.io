@@ -106,8 +106,7 @@ function on_country_click(e, divid, country_id) {
 
     // Fill Country Summary
     country_name.textContent = country_name_text;
-    country_dict = get_country_dict(country_name_text);
-
+    country_dict = get_country_dict(country_id);
     let isbn = country_dict.ISBN;
 
     // Metadata from Google-API via ISBN
