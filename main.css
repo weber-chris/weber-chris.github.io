@@ -21,16 +21,11 @@ path {
 }
 
 #country_details {
-    background-color: #ffcb9b;
-    width: 27em;
+    background-color: #ffffff;
+    width: 24em;
     position: absolute;
     display: none;
-    /* max-height: 35em; */
-    /* max-height: 100%; */
-    /* width: 250px;
-    height: 350px; */
-    /* left : left;
-    top : top; */
+    border: 1px solid rgb(117, 117, 117);
 }
 
 #book_img {
@@ -38,7 +33,6 @@ path {
     width: 33%;
     float: left;
     padding: 0px;
-    border: 1px solid blue;
 }
 
 #book_cover {
@@ -51,7 +45,6 @@ path {
     width: 67%;
     float: left;
     padding-top: 10px;
-    border: 1px solid green;
 }
 
 #country_name {
@@ -86,7 +79,6 @@ path {
     width: 100%;
     float: left;
     padding: 15px;
-    border: 1px solid yellow;
 }
 
 .checked_star {
