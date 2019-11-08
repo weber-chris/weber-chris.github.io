@@ -28,6 +28,9 @@ function set_star_rating(star_rating) {
 function extract_from_goodreads(goodreads_url){
     // TODO
     // goodreads API https://www.goodreads.com/api
+    // key: IHC3XKlca8iW8bG921faA
+
+    // the associate: ISBN 9780385517836
 // fetch(goodreads_url);
 // (async () => {
 //     const response = await fetch(goodreads_url);
