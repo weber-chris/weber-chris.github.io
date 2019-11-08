@@ -23,7 +23,10 @@ path {
 #country_details {
     background-color: #ffcb9b;
     width: 27em;
-    height: 35em;
+    position: absolute;
+    display: none;
+    /* max-height: 35em; */
+    /* max-height: 100%; */
     /* width: 250px;
     height: 350px; */
     /* left : left;
@@ -38,7 +41,7 @@ path {
     border: 1px solid blue;
 }
 
-#book_cover{
+#book_cover {
     max-width: 100%;
     max-height: 100%;
 }
@@ -52,34 +55,34 @@ path {
 }
 
 #country_name {
-    font-size: 10px;
+    font-size: 12px;
     padding-left: 10px;
 }
 
 #book_title {
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 10px;
     font-weight: bold;
 }
 
 #book_author {
     padding-left: 10px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 #rating_div {
     float: left;
-    font-size: 8px;
+    font-size: 10px;
     padding-left: 10px;
 }
 
 #avg_rating {
-    font-size: 10px;
+    font-size: 12px;
     padding-left: 2px;
 }
 
 #book_summary {
-    height: 59%;
+    max-height: 59%;
     width: 100%;
     float: left;
     padding: 15px;
