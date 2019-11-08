@@ -8,16 +8,79 @@ img.social-media-link {
     margin-bottom: 8px;
 }
 
-p {
+.footer-text {
+    font-size: 12px;
     text-align: center;
 }
 
-.footer-text {
+path {
+    fill: white;
+    stroke: #000000;
+    stroke-width: "0.7998829988299883";
+    stroke-opacity: "1";
+}
+
+#country_details {
+    background-color: #ffffff;
+    width: 24em;
+    position: absolute;
+    display: none;
+    border: 1px solid rgb(117, 117, 117);
+}
+
+#book_img {
+    height: 41%;
+    width: 33%;
+    float: left;
+    padding: 0px;
+}
+
+#book_cover {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#book_metadata {
+    height: 41%;
+    width: 67%;
+    float: left;
+    padding-top: 10px;
+}
+
+#country_name {
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+#book_title {
+    font-size: 14px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#book_author {
+    padding-left: 10px;
     font-size: 12px;
 }
 
-/* body {
-    background: #222222 !important;
-    color: #EEEEEE" ;
+#rating_div {
+    float: left;
+    font-size: 10px;
+    padding-left: 10px;
+}
 
-} */
+#avg_rating {
+    font-size: 12px;
+    padding-left: 2px;
+}
+
+#book_summary {
+    max-height: 59%;
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.checked_star {
+    color: orange;
+}
