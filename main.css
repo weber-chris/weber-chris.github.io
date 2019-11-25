@@ -8,9 +8,15 @@ img.social-media-link {
     margin-bottom: 8px;
 }
 
+a.social-media-anchor{
+    z-index: 4;
+    position: relative;
+}
+
 .footer-text {
     font-size: 12px;
     text-align: center;
+    z-index: 4;
 }
 
 path {
@@ -20,12 +26,27 @@ path {
     stroke-opacity: "1";
 }
 
+#invisible_div {
+    /* background-color: rebeccapurple; */
+    opacity: 100%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 2;
+    position: fixed;
+}
+
+#map {
+    z-index: 3;
+}
+
 #country_details {
     background-color: #ffffff;
     width: 24em;
     position: absolute;
     display: none;
     border: 1px solid rgb(117, 117, 117);
+    z-index: 4;
 }
 
 #book_img {
@@ -83,4 +104,9 @@ path {
 
 .checked_star {
     color: orange;
+}
+
+#linked_a{
+    position: relative;
+    z-index: 4;
 }

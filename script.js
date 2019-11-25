@@ -1,17 +1,26 @@
-document.addEventListener('keyup', function (event) {
+document.addEventListener("keyup", function (event) {
     if (event.defaultPrevented) {
         return;
     }
 
     var key = event.key || event.keyCode;
 
-    if (key === 'Escape' || key === 'Esc' || key === 27) {
+    if (key === "Escape" || key === "Esc" || key === 27) {
         $("#country_details").hide();
     }
 });
 
-function on_country_details_click() {
+document.addEventListener("click", function (event) {
+    if (event.defaultPrevented) {
+        return;
+    }
+
+    // $("#country_details").hide();
+});
+
+function details_close() {
     $("#country_details").hide();
+    $("#invisible_div").hide();
 }
 
 function init_countries() {
@@ -153,5 +162,6 @@ function on_country_click(e, country_id) {
     // $("#" + divid).toggle();country_details
     // $("#" + divid).show();
     $("#country_details").show();
+    $("#invisible_div").show();
     return false;
 }
