@@ -10,13 +10,6 @@ document.addEventListener("keyup", function (event) {
     }
 });
 
-document.addEventListener("click", function (event) {
-    if (event.defaultPrevented) {
-        return;
-    }
-
-    // $("#country_details").hide();
-});
 
 function details_close() {
     $("#country_details").hide();
@@ -57,6 +50,13 @@ $(document).ready(function () {
         on_country_click(event, this.id);
     });
     init_countries();
+
+    svgPanZoom('#map', {
+        controlIconsEnabled: true,
+        zoomScaleSensitivity: 0.3,
+        minZoom: 1,
+        onUpdatedCTM: details_close,
+    });
 });
 
 function set_star_rating(star_rating) {

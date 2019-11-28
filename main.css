@@ -1,7 +1,10 @@
 h1.topheader {
     text-align: center;
 }
-
+#country_container{
+    align-content: center;
+    display: flex;
+}
 img.social-media-link {
     width: 64px;
     margin-top: 4px;
@@ -19,7 +22,7 @@ a.social-media-anchor{
     z-index: 4;
 }
 
-path {
+.countryPath{
     fill: white;
     stroke: #000000;
     stroke-width: "0.7998829988299883";
@@ -38,6 +41,12 @@ path {
 
 #map {
     z-index: 3;
+    overflow: hidden; 
+    position: relative;
+    width:80%;
+    height: 60vh;
+    margin: 0 auto;
+    /* border: 1px solid black; */
 }
 
 #country_details {
@@ -46,7 +55,7 @@ path {
     position: absolute;
     display: none;
     border: 1px solid rgb(117, 117, 117);
-    z-index: 4;
+    z-index: 5;
 }
 
 #book_img {
