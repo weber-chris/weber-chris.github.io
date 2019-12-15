@@ -51,12 +51,25 @@ $(document).ready(function () {
     });
     init_countries();
 
-    svgPanZoom('#map', {
+    zoomer = svgPanZoom('#map', {
         controlIconsEnabled: true,
         zoomScaleSensitivity: 0.3,
         minZoom: 1,
         onUpdatedCTM: details_close,
     });
+
+    // TODO init zoom
+
+    let map_svg = document.getElementById('map');
+    let map_width = map_svg.getBoundingClientRect()['width'];
+    let map_height = map_svg.getBoundingClientRect()['height'];
+    // console.log(map_width);
+    let init_zoom = map_svg.createSVGPoint();
+    init_zoom.x = map_width * 0.6;
+    init_zoom.y = map_height * 0.45;
+
+    zoomer.zoomAtPoint(3, init_zoom, false);
+
 });
 
 function set_star_rating(star_rating) {
