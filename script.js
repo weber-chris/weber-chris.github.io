@@ -44,21 +44,83 @@ function color_countries() {
     }
 }
 
-// Add the same function to all path elements
+function init_touch_controls() {
+    let eventsHandler = {
+        haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']
+        , init: function (options) {
+            var instance = options.instance
+                , initialScale = 1
+                , pannedX = 0
+                , pannedY = 0
+
+            // Init Hammer
+            // Listen only for pointer and touch events
+            this.hammer = Hammer(options.svgElement, {
+                inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput
+            })
+
+            // Enable pinch
+            this.hammer.get('pinch').set({ enable: true })
+
+            // Handle double tap
+            this.hammer.on('doubletap', function (ev) {
+                instance.zoomIn()
+            })
+
+            // Handle pan
+            this.hammer.on('panstart panmove', function (ev) {
+                // On pan start reset panned variables
+                if (ev.type === 'panstart') {
+                    pannedX = 0
+                    pannedY = 0
+                }
+
+                // Pan only the difference
+                instance.panBy({ x: ev.deltaX - pannedX, y: ev.deltaY - pannedY })
+                pannedX = ev.deltaX
+                pannedY = ev.deltaY
+            })
+
+            // Handle pinch
+            this.hammer.on('pinchstart pinchmove', function (ev) {
+                // On pinch start remember initial zoom
+                if (ev.type === 'pinchstart') {
+                    initialScale = instance.getZoom()
+                    instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y })
+                }
+
+                instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y })
+            })
+
+            // Prevent moving the page on some devices when panning over SVG
+            options.svgElement.addEventListener('touchmove', function (e) { e.preventDefault(); });
+        }
+
+        , destroy: function () {
+            this.hammer.destroy()
+        }
+    }
+    return eventsHandler
+}
+
 $(document).ready(function () {
+    // Add the same function to all path elements
     $('path').click(function () {
         on_country_click(event, this.id);
     });
     init_countries();
+
+
+    // Initialize Zooming Function
+    customEventsHandler = init_touch_controls();
 
     zoomer = svgPanZoom('#map', {
         controlIconsEnabled: true,
         zoomScaleSensitivity: 0.3,
         minZoom: 1,
         onUpdatedCTM: details_close,
+        customEventsHandler: customEventsHandler
     });
-
-    // TODO init zoom
 
     let map_svg = document.getElementById('map');
     let map_width = map_svg.getBoundingClientRect()['width'];
@@ -178,3 +240,5 @@ function on_country_click(e, country_id) {
     $("#invisible_div").show();
     return false;
 }
+
+
