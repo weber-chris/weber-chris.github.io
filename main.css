@@ -1,14 +1,42 @@
-h1.topheader {
-    text-align: center;
+body{
+    height: 99vh;
 }
+
+body .jumbotron{
+    height: 10vh;
+    background-color:white;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
+
+#bs-ovverride-h1{
+    font-size: 4.5vh; 
+    font-weight: 700;
+}
+
 #country_container{
     align-content: center;
     display: flex;
+    height: 78vh;
+    margin: 0;
 }
+
+#bs-footer-override{
+    height: 11vh;   
+    display: flex;
+    align-items: center;
+}
+
 img.social-media-link {
-    width: 64px;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    height: 5vh;
+    margin-top: 0.2vh;
+    margin-bottom: 0.4vh;
 }
 
 a.social-media-anchor{
@@ -20,6 +48,7 @@ a.social-media-anchor{
     font-size: 12px;
     text-align: center;
     z-index: 4;
+    margin: 0;
 }
 
 .countryPath{
@@ -44,9 +73,10 @@ a.social-media-anchor{
     overflow: hidden; 
     position: relative;
     width:80%;
-    height: 70vh;
+    height: max-content;
+    height:100%;
+    /* height: 70vh; */
     margin: 0 auto;
-    /* border: 1px solid black; */
 }
 
 #country_details {

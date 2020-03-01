@@ -17,8 +17,12 @@
 <body>
 
     <div id="invisible_div" onclick="details_close()"></div>
-    <div class="jumbotron text-center" style="margin-bottom:0; background-color:#FFFFFF; ">
-        <h1>Reading the World</h1>
+    
+    <div class="jumbotron vertical-center">
+        <div class="container text-center">
+            <h1 id="bs-ovverride-h1" class="display-4">Reading the World</h1>
+            <!-- <p class="lead">199 countries - 199 books.</p> -->
+        </div>
     </div>
 
     <div class="container-fluid" id="country_container">
@@ -1261,9 +1265,8 @@
             </div>
         </div>
     </div>
-    <div class="footer" style="margin-bottom:0; margin-top:15px">
+    <div class="footer" id="bs-footer-override">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <a href="https://github.com/rexorci" class="social-media-anchor">
