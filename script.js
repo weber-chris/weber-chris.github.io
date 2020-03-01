@@ -118,11 +118,11 @@ $(document).ready(function () {
 
     // Initialize Zooming Function
     customEventsHandler = init_touch_controls();
-
     zoomer = svgPanZoom('#map', {
-        controlIconsEnabled: true,
+        controlIconsEnabled: !isMobileDevice(),
         zoomScaleSensitivity: 0.3,
         minZoom: 1,
+        maxZoom: 40,
         onUpdatedCTM: details_close,
         customEventsHandler: customEventsHandler
     });
@@ -274,3 +274,9 @@ function calculate_statistc() {
     statistic_planned.innerHTML = `${planned} Planned`;
     statistic_open.innerHTML = `${open} Open`;
 }
+
+
+function isMobileDevice() {
+    let isMobile = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    return isMobile
+};
