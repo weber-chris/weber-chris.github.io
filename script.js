@@ -156,55 +156,6 @@ function set_star_rating(star_rating) {
     }
 }
 
-// function book_data_google_api(isbn) {
-//     // TODO API Key einschränken, nur von christophweber.net
-//     book_title.textContent = "";
-//     book_author.textContent = "";
-//     book_summary_text.textContent = "";
-//     book_cover.src = "";
-//     if (isbn != "") {
-//         let google_api_key = "AIzaSyDeVVKLKHV-Bs4H1t3dosjntojl9fkdqVw";
-//         let google_url = "https://www.googleapis.com/";
-
-//         $.get(`${google_url}books/v1/volumes?q=isbn:${isbn}&key=${google_api_key}`, function (response) {
-
-//             if (response.items != null) {
-//                 book_title = document.getElementById("book_title");
-//                 book_title.textContent = response.items[0].volumeInfo.title;
-//                 book_author = document.getElementById("book_author");
-//                 book_author.textContent = response.items[0].volumeInfo.authors;
-//                 book_summary_text = document.getElementById("book_summary_text");
-//                 book_summary_text.textContent = response.items[0].volumeInfo.description;
-//                 book_cover = document.getElementById("book_cover");
-//                 if (response.items[0].volumeInfo.imageLinks != null) {
-//                     book_cover.src = response.items[0].volumeInfo.imageLinks.thumbnail;
-//                 } else {
-//                     console.log(`No thumbnail for ${isbn}`);
-//                     book_cover.src = "";
-//                 }
-//             } else {
-//                 // console.log("ISBN not resolvable");
-//                 console.log(isbn);
-//             }
-//         });
-//     }
-// }
-
-// function rating_data_goodreads_api(isbn) {
-//     // TODO
-//     // goodreads API https://www.goodreads.com/api
-//     // key: IHC3XKlca8iW8bG921faA
-//     let goodreads_api_key = "IHC3XKlca8iW8bG921faA";
-//     let goodreads_user_id = "85284077";
-//     let goodreads_url = "https://www.goodreads.com/";
-//     let req_book_id = `${goodreads_url}book/isbn_to_id?isbn=${isbn}?key=${goodreads_api_key}&format=json`;
-//     let req_json = `${goodreads_url}book/isbn/${isbn}?user_id=${goodreads_user_id}&format=json`;
-//     let req_tmp = "https://www.goodreads.com/book/isbn_to_id?isbn=9780385517836&key=IHC3XKlca8iW8bG921faA";
-
-//     let my_rating = 2;
-//     let avg_rating = 3.7;
-// }
-
 function get_country_dict(country_name) {
     // TODO Check if page fully loaded
     for (let i in country_dicts) {
