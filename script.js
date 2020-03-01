@@ -1,4 +1,4 @@
-$(window).on('orientationchange', function(e) {
+$(window).on('orientationchange', function (e) {
     location.reload();
 });
 
@@ -32,6 +32,7 @@ let country_dicts = {}
 function set_country_data(data) {
     country_dicts = data;
     color_countries();
+    calculate_statistc();
 }
 
 
@@ -132,7 +133,7 @@ $(document).ready(function () {
     let init_zoom = map_svg.createSVGPoint();
     init_zoom.x = map_width * 0.5;
     init_zoom.y = map_height * 0.45;
-    aspect_ratio = map_height/map_width;
+    aspect_ratio = map_height / map_width;
     zoom_grade = 5 * aspect_ratio;
 
     zoomer.zoomAtPoint(zoom_grade, init_zoom, false);
@@ -246,4 +247,30 @@ function on_country_click(e, country_id) {
     return false;
 }
 
+function calculate_statistc() {
+    let total = country_dicts.length;
 
+    let read = 0;
+    let planned = 0;
+    let open = 0;
+    for (let i in country_dicts) {
+        if (country_dicts[i].Read == "Read") {
+            read++;
+        } else if (country_dicts[i].Read == "Wanted") {
+            planned++;
+        }
+        else {
+            open++;
+        }
+    }
+    
+    let statistic_total = document.getElementById("statistic_total");
+    let statistic_read = document.getElementById("statistic_read");
+    let statistic_planned = document.getElementById("statistic_planned");
+    let statistic_open = document.getElementById("statistic_open");
+    
+    statistic_total.innerHTML = `${total} Total`;
+    statistic_read.innerHTML = `${read} Read`;
+    statistic_planned.innerHTML = `${planned} Planned`;
+    statistic_open.innerHTML = `${open} Open`;
+}

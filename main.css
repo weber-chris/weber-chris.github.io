@@ -21,19 +21,19 @@ body .jumbotron{
 #country_container{
     align-content: center;
     display: flex;
-    height: 78vh;
+    height: 76vh;
     margin: 0;
 }
 
 #bs-footer-override{
-    height: 11vh;   
+    /* height: 13vh;    */
     display: flex;
     align-items: center;
 }
 
 img.social-media-link {
     height: 5vh;
-    margin-top: 0.2vh;
+    max-height: 3em;
     margin-bottom: 0.4vh;
 }
 
@@ -146,4 +146,19 @@ a.social-media-anchor{
 #linked_a{
     position: relative;
     z-index: 4;
+}
+
+#statistic{
+    font-weight: bold;
+    margin: 0px;
+}
+
+#statistic_read{
+    color: #09ff00;
+}
+#statistic_planned{
+    color: #d1b200;
+}
+#statistic_open{
+    color: #ff0000;
 }
