@@ -1,3 +1,7 @@
+$(window).on('orientationchange', function(e) {
+    location.reload();
+});
+
 document.addEventListener("keyup", function (event) {
     if (event.defaultPrevented) {
         return;
@@ -127,10 +131,21 @@ $(document).ready(function () {
     let map_height = map_svg.getBoundingClientRect()['height'];
     // console.log(map_width);
     let init_zoom = map_svg.createSVGPoint();
-    init_zoom.x = map_width * 0.6;
+    console.log(map_svg.getBoundingClientRect())
+    console.log(zoomer.getSizes())
+    let svg_size = zoomer.getSizes();
+    // svg_size['width']
+    // svg_size['height']
+    // init_zoom.x = map_width * 0.2;
+    // init_zoom.y = map_height * 0.45;
+    init_zoom.x = map_width * 0.5;
     init_zoom.y = map_height * 0.45;
+    aspect_ratio = map_height/map_width;
+    zoom_grade = 5 * aspect_ratio;
+    // zoom_grade = 5 * Math.sqrt(aspect_ratio);
+    console.log(zoom_grade);
 
-    zoomer.zoomAtPoint(3, init_zoom, false);
+    zoomer.zoomAtPoint(zoom_grade, init_zoom, false);
 
 });
 
