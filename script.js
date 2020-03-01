@@ -188,11 +188,10 @@ function on_country_click(e, country_id) {
     book_cover.src = country_dict.Thumbnail;
     set_star_rating(country_dict.Rating);
 
-    // Load again so that height/weight represent the most recent content!
-    country_details = document.getElementById("country_details");
-    div_width = parseInt( getComputedStyle(country_details).width);
-    div_height =  parseInt(getComputedStyle(country_details).height);
+    div_width =  $('#country_details').width();
+    div_height =  $('#country_details').height();
 
+    console.log(div_height);
     max_width = parseInt(window.innerWidth);
     max_height = parseInt(window.innerHeight);
     

@@ -87,8 +87,9 @@ a.social-media-anchor{
 }
 
 #book_img {
-    height: 41%;
-    width: 33%;
+    /* set to fixed dimensions, otherwise we can't calculate width/height because of image loading */
+    height: 9.5em;
+    width: 6.5em;
     float: left;
     padding: 0px;
 }
@@ -133,7 +134,7 @@ a.social-media-anchor{
 }
 
 #book_summary {
-    max-height: 59%;
+    /* max-height: 59%; */
     width: 100%;
     float: left;
     padding: 15px;
