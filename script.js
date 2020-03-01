@@ -217,13 +217,16 @@ function get_country_dict(country_name) {
 
 function on_country_click(e, country_id) {
     // Information from DOM Elements
-    let left = e.clientX + "px";
-    let top = e.clientY + "px";
+    let left = parseInt( e.clientX );
+    let top = parseInt(e.clientY );
+    // let left = e.clientX + "px";
+    // let top = e.clientY + "px";
     let country_details = document.getElementById("country_details");
     let country = document.getElementById(country_id);
 
     let country_name_text = country.getElementsByTagName("title")[0].textContent;
     let country_name = document.getElementById("country_name");
+
 
     // Fill Country Summary
     country_name.textContent = country_name_text;
@@ -232,16 +235,29 @@ function on_country_click(e, country_id) {
     book_author.textContent = country_dict.Author;
     book_summary_text.textContent = country_dict.Description;
     book_cover.src = country_dict.Thumbnail;
-
     set_star_rating(country_dict.Rating);
 
+    // Load again so that height/weight represent the most recent content!
+    country_details = document.getElementById("country_details");
+    div_width = parseInt( getComputedStyle(country_details).width);
+    div_height =  parseInt(getComputedStyle(country_details).height);
+
+    max_width = parseInt(window.innerWidth);
+    max_height = parseInt(window.innerHeight);
+    
+
     // Reset position to appear at Mouse Cursor
-    country_details.style.left = left;
-    country_details.style.top = top;
+    if (div_width + left < max_width) {
+        country_details.style.left = left + "px";
+    } else {
+        country_details.style.left = max_width - div_width + "px" ;
+    }
+    if (div_height + top < max_height) {
+        country_details.style.top = top + "px";
+    } else {
+        country_details.style.top = max_height -div_height + "px";
+    }
 
-
-    // $("#" + divid).toggle();country_details
-    // $("#" + divid).show();
     $("#country_details").show();
     $("#invisible_div").show();
     return false;
@@ -263,12 +279,12 @@ function calculate_statistc() {
             open++;
         }
     }
-    
+
     let statistic_total = document.getElementById("statistic_total");
     let statistic_read = document.getElementById("statistic_read");
     let statistic_planned = document.getElementById("statistic_planned");
     let statistic_open = document.getElementById("statistic_open");
-    
+
     statistic_total.innerHTML = `${total} Total`;
     statistic_read.innerHTML = `${read} Read`;
     statistic_planned.innerHTML = `${planned} Planned`;
