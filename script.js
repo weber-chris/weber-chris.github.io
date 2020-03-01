@@ -250,12 +250,12 @@ function on_country_click(e, country_id) {
     if (div_width + left < max_width) {
         country_details.style.left = left + "px";
     } else {
-        country_details.style.left = max_width - div_width + "px" ;
+        country_details.style.left = max_width - div_width - 5 + "px" ;
     }
     if (div_height + top < max_height) {
         country_details.style.top = top + "px";
     } else {
-        country_details.style.top = max_height -div_height + "px";
+        country_details.style.top = max_height -div_height - 5 + "px";
     }
 
     $("#country_details").show();
