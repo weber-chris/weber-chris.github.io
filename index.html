@@ -2,20 +2,15 @@
 <html>
 
 <head>
-    <title>Christoph Weber</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Reading a book from every country in the world.">
+    <meta name="author" content="Christoph Weber">
+
+    <title>Reading the World</title>
+
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
-    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-    <script type="text/javascript" src='svg-pan-zoom.js'></script>
-    <!-- <script> 
-        $(function(){
-          $("#includeWorldmap").load("worldmap.html"); 
-        });
-        </script>  -->
-    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -27,9 +22,8 @@
     </div>
 
     <div class="container-fluid" id="country_container">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="map"
-             class="svg-worldmap">
-             <!-- viewBox="0 0 2894 1422"  -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="map" class="svg-worldmap">
+            <!-- viewBox="0 0 2894 1422"  -->
             <!-- <svg height="619px" version="1.1" width="1260px" xmlns="http://www.w3.org/2000/svg"
                         style="overflow: hidden; position: relative;" id="map" viewBox="0 0 2894 1422"
                         preserveAspectRatio="xMinYMin"> -->
@@ -1246,7 +1240,7 @@
                 <title>Seychelles</title>
             </path>
         </svg>
-        <div id="country_details" onclick="details_close()" >
+        <div id="country_details" onclick="details_close()">
             <div id="book_img">
                 <img id="book_cover" />
             </div>
@@ -1267,16 +1261,33 @@
             </div>
         </div>
     </div>
-    <div class="footer text-center" style="margin-bottom:0; margin-top:15px" >
-        <a href="https://github.com/rexorci" class="social-media-anchor">
-            <img src="resources/GitHub-Mark-64px.png" alt="Github Profile" class="social-media-link" >
-        </a>
-        <a href="https://www.linkedin.com/in/christoph-weber-x1337/" class="social-media-anchor">
-            <img src="resources/linkedin.png" alt="Linkedin Profile" class="social-media-link">
-        </a>
-        <p class="footer-text">© 2019 Copyright - Christoph Weber</p>
+    <div class="footer" style="margin-bottom:0; margin-top:15px">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="https://github.com/rexorci" class="social-media-anchor">
+                        <img src="resources/GitHub-Mark-64px.png" alt="Github Profile" class="social-media-link">
+                    </a>
+                    <a href="https://www.linkedin.com/in/christoph-weber-x1337/" class="social-media-anchor">
+                        <img src="resources/linkedin.png" alt="Linkedin Profile" class="social-media-link">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="footer-text">2019 Copyleft - Christoph Weber</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script type="text/javascript" src='svg-pan-zoom.js'></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 <!-- <footer class="page-footer">
     <div class="row">
