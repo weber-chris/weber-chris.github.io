@@ -86,6 +86,17 @@ a.social-media-anchor{
     z-index: 5;
 }
 
+#close_x_div{
+    top: 5px;
+    right: 5px;
+    position: absolute;
+}
+
+#btn_close{
+    border-width: 0;
+    background: none;
+}
+
 #book_img {
     /* set to fixed dimensions, otherwise we can't calculate width/height because of image loading */
     height: 9.5em;
