@@ -23,12 +23,18 @@ document.addEventListener("keyup", function (event) {
 });
 
 
-function reset_country_color(){
-    if ( current_country != null) {
+function reset_country_color() {
+    if (current_country != null) {
         let country_dict = get_country_dict(current_country);
         let country = document.getElementById(current_country);
         if (country_dict.Read == "Read") {
             country.style.fill = READ_COLOR;
+        } else if (country_dict.Read == "Current") {
+            let stripes_currently_reading_fg = document.getElementById("stripes_currently_reading_foreground");
+            stripes_currently_reading_fg.style.stroke = READ_COLOR;
+            let stripes_currently_reading_bg = document.getElementById("stripes_currently_reading_background");
+            stripes_currently_reading_bg.style.fill = WANTED_COLOR;
+            country.style.fill = "url(#stripes_currently_reading)";
         } else if (country_dict.Read == "Wanted") {
             country.style.fill = WANTED_COLOR;
         } else {
@@ -64,6 +70,12 @@ function color_countries() {
         let country_div = document.getElementById(country_dicts[i].Country);
         if (country_dicts[i].Read == "Read") {
             country_div.style.fill = READ_COLOR;
+        } else if (country_dicts[i].Read == "Current") {
+            let stripes_currently_reading_fg = document.getElementById("stripes_currently_reading_foreground");
+            stripes_currently_reading_fg.style.stroke = READ_COLOR;
+            let stripes_currently_reading_bg = document.getElementById("stripes_currently_reading_background");
+            stripes_currently_reading_bg.style.fill = WANTED_COLOR;
+            country_div.style.fill = "url(#stripes_currently_reading)";
         } else if (country_dicts[i].Read == "Wanted") {
             country_div.style.fill = WANTED_COLOR;
         } else {
@@ -235,6 +247,12 @@ function on_country_click(e, country_id) {
     // Highlight selected country
     if (country_dict.Read == "Read") {
         country.style.fill = READ_COLOR_HIGHLIGHT;
+    } else if (country_dict.Read == "Current") {
+        let stripes_currently_reading_fg = document.getElementById("stripes_currently_reading_foreground");
+        stripes_currently_reading_fg.style.stroke = READ_COLOR_HIGHLIGHT;
+        let stripes_currently_reading_bg = document.getElementById("stripes_currently_reading_background");
+        stripes_currently_reading_bg.style.fill = WANTED_COLOR_HIGHLIGHT;
+        country.style.fill = "url(#stripes_currently_reading)";
     } else if (country_dict.Read == "Wanted") {
         country.style.fill = WANTED_COLOR_HIGHLIGHT;
     } else {
