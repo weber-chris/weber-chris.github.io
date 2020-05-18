@@ -1,3 +1,11 @@
+const READ_COLOR = "#a2f89f";
+const WANTED_COLOR = "#fae77c";
+const OPEN_COLOR = "#ffd9d9";
+const READ_COLOR_HIGHLIGHT = "#08f000";
+const WANTED_COLOR_HIGHLIGHT = "#f5c800";
+const OPEN_COLOR_HIGHLIGHT = "#ff0000";
+let current_country = null;
+
 $(window).on('orientationchange', function (e) {
     location.reload();
 });
@@ -15,7 +23,22 @@ document.addEventListener("keyup", function (event) {
 });
 
 
+function reset_country_color(){
+    if ( current_country != null) {
+        let country_dict = get_country_dict(current_country);
+        let country = document.getElementById(current_country);
+        if (country_dict.Read == "Read") {
+            country.style.fill = READ_COLOR;
+        } else if (country_dict.Read == "Wanted") {
+            country.style.fill = WANTED_COLOR;
+        } else {
+            country.style.fill = OPEN_COLOR;
+        }
+    }
+}
+
 function details_close() {
+    reset_country_color();
     $("#country_details").hide();
     $("#invisible_div").hide();
 }
@@ -40,11 +63,11 @@ function color_countries() {
     for (let i in country_dicts) {
         let country_div = document.getElementById(country_dicts[i].Country);
         if (country_dicts[i].Read == "Read") {
-            country_div.style.fill = "#a2f89f";
+            country_div.style.fill = READ_COLOR;
         } else if (country_dicts[i].Read == "Wanted") {
-            country_div.style.fill = "#fae77c";
+            country_div.style.fill = WANTED_COLOR;
         } else {
-            country_div.style.fill = "#ffd9d9";
+            country_div.style.fill = OPEN_COLOR;
         }
     }
 }
@@ -167,11 +190,13 @@ function get_country_dict(country_name) {
 }
 
 function on_country_click(e, country_id) {
+    reset_country_color();
     // Information from DOM Elements
-    let left = parseInt( e.clientX );
-    let top = parseInt(e.clientY );
+    let left = parseInt(e.clientX);
+    let top = parseInt(e.clientY);
     // let left = e.clientX + "px";
     // let top = e.clientY + "px";
+    current_country = country_id;
     let country_details = document.getElementById("country_details");
     let country = document.getElementById(country_id);
 
@@ -188,24 +213,32 @@ function on_country_click(e, country_id) {
     book_cover.src = country_dict.Thumbnail;
     set_star_rating(country_dict.Rating);
 
-    div_width =  $('#country_details').width();
-    div_height =  $('#country_details').height();
+    div_width = $('#country_details').width();
+    div_height = $('#country_details').height();
 
-    console.log(div_height);
     max_width = parseInt(window.innerWidth);
     max_height = parseInt(window.innerHeight);
-    
+
 
     // Reset position to appear at Mouse Cursor
     if (div_width + left < max_width) {
         country_details.style.left = left + "px";
     } else {
-        country_details.style.left = max_width - div_width - 5 + "px" ;
+        country_details.style.left = max_width - div_width - 5 + "px";
     }
     if (div_height + top < max_height) {
         country_details.style.top = top + "px";
     } else {
-        country_details.style.top = max_height -div_height - 5 + "px";
+        country_details.style.top = max_height - div_height - 5 + "px";
+    }
+
+    // Highlight selected country
+    if (country_dict.Read == "Read") {
+        country.style.fill = READ_COLOR_HIGHLIGHT;
+    } else if (country_dict.Read == "Wanted") {
+        country.style.fill = WANTED_COLOR_HIGHLIGHT;
+    } else {
+        country.style.fill = OPEN_COLOR_HIGHLIGHT;
     }
 
     $("#country_details").show();
