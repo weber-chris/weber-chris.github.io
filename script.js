@@ -10,6 +10,12 @@ $(window).on('orientationchange', function (e) {
     location.reload();
 });
 
+$(window).on('click', function (e) {
+    if (e.target == tableModal) {
+        tableModal.style.display = "none";
+    }
+})
+
 document.addEventListener("keyup", function (event) {
     if (event.defaultPrevented) {
         return;
@@ -62,8 +68,26 @@ function set_country_data(data) {
     country_dicts = data;
     color_countries();
     calculate_statistc();
+    create_overview_table();
 }
 
+function create_overview_table() {
+    const dt_overview = $('#tbl_overview').DataTable({
+        // paging: false,
+        searching: false,
+        order: [[1, 'asc']],
+        // scrollResize: true,
+        // scrollY: '60vh',
+        // scrollCollapse: true,
+        // paging: false
+    });
+    // dt_overview.css({width:'100%'});
+    console.log(country_dicts[0])
+
+    for (let i in country_dicts) {
+        dt_overview.row.add([country_dicts[i]['Read'], country_dicts[i]['Country'],  country_dicts[i]['Title'] , country_dicts[i]['Author'], country_dicts[i]['Rating']]).draw(false);
+    };
+}
 
 function color_countries() {
     for (let i in country_dicts) {
@@ -275,7 +299,7 @@ function calculate_statistc() {
             read++;
         } else if (country_dicts[i].Read == "Current") {
             planned++;
-        }else if (country_dicts[i].Read == "Wanted") {
+        } else if (country_dicts[i].Read == "Wanted") {
             planned++;
         }
         else {
@@ -292,10 +316,26 @@ function calculate_statistc() {
     statistic_read.innerHTML = `${read} Read`;
     statistic_planned.innerHTML = `${planned} Planned`;
     statistic_open.innerHTML = `${open} Open`;
-}
+};
 
 
 function isMobileDevice() {
     let isMobile = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
     return isMobile
 };
+
+var tableModal = document.getElementById("tableModal");
+
+function showTable() {
+    tableModal.style.display = "block";
+    // $(document).ready( function () {
+    //     $('#tbl_overview').DataTable({
+    //         paging:false
+    //     });
+    // } );
+};
+
+function closeModal() {
+    tableModal.style.display = "none";
+
+}

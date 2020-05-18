@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -1263,7 +1264,7 @@
             </path>
         </svg>
         <div id="country_details" onclick="details_close()">
-            <div id="close_x_div"><button id=btn_close>&times;</button></div>
+            <div class="close_x_div"><button class=btn_close_x>&times;</button></div>
             <div id="book_img">
                 <img id="book_cover" />
             </div>
@@ -1287,7 +1288,30 @@
     <div class="footer" id="bs-footer-override">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12  text-center">
+                <!-- Statistics Table Modal -->
+                <div id="tableModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="close_x_div"><button class=btn_close_x onclick="closeModal()">&times;</button></div>
+                        <!-- <div class="close" onclick="closeModal()">&times;</span> -->
+                        <h3>Overview</h3>
+                        <table id="tbl_overview">
+                            <thead>
+                                <tr>
+                                    <th padding=10>Status</th>
+                                    <th>Country</th>
+                                    <th>Name</th>
+                                    <th>Author</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_overview_body"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="col-lg-12  text-center" onclick="showTable()">
                     <p id="statistic"><span id="statistic_total"></span> - <span id="statistic_read"
                             style="color: #09ff00;">Read</span> / <span id="statistic_planned">Planned</span> / <span
                             id="statistic_open">Open</span></p>
@@ -1314,6 +1338,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src='svg-pan-zoom.js'></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
