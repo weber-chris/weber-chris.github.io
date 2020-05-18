@@ -273,7 +273,9 @@ function calculate_statistc() {
     for (let i in country_dicts) {
         if (country_dicts[i].Read == "Read") {
             read++;
-        } else if (country_dicts[i].Read == "Wanted") {
+        } else if (country_dicts[i].Read == "Current") {
+            planned++;
+        }else if (country_dicts[i].Read == "Wanted") {
             planned++;
         }
         else {
