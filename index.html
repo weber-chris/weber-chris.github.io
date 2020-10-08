@@ -26,13 +26,69 @@
 <body>
 
     <div id="invisible_div" onclick="details_close()"></div>
-    <div class="jumbotron vertical-center">
+    <!-- <div class="jumbotron vertical-center">
         <div class="container text-center">
             <h1 id="bs-ovverride-h1" class="display-4">Reading the World</h1>
-            <!-- <p class="lead">199 countries - 199 books.</p> -->
+            <h1 >Reading the World</h1>
+            <h2>Currently reading:</h2>
+        </div>
+    </div> -->
+
+    <div class="container text-center introduction">
+        <!-- <h1 id="bs-ovverride-h1" class="display-4">Reading the World</h1> -->
+        <h1>Reading the World</h1>
+        <!-- <h4>Currently reading</h4> -->
+        <h5 id="currently-reading-header" class="text-muted">Click the countries to find out more! Currently reading:</h5>
+        <h3 id="currently-reading">Ukraine - Picknick auf dem Eis (Andrey Kurkov)</h3>
+        <button  class="btn btn-primary" onclick="showTable()">Details</button>
+        <!-- <p class="lead">199 countries - 199 books.</p> -->
+    </div>
+    <!-- <div class="col-lg-12 text-center">
+        <p class="intro text-muted">Currently reading</p>
+        <p class="intro">Progress: <span id="statistic_total">Total</span> / <span id="statistic_read"
+                style="color: #09ff00;">Read</span> / <span id="statistic_planned">Planned</span> / <span
+                id="statistic_open">Open</span></p>
+    </div> -->
+    <!-- <div class="col-lg-12  text-center" onclick="showTable()">
+        <p id="statistic"><span id="statistic_total"></span> - <span id="statistic_read"
+                style="color: #09ff00;">Read</span> / <span id="statistic_planned">Planned</span> / <span
+                id="statistic_open">Open</span></p>
+    </div> -->
+    <div>
+        <div class="container">
+            <div class="row">
+                <!-- Statistics Table Modal -->
+                <div id="detail-modal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content text-center">
+                        <div class="close_x_div"><button class=btn_close_x onclick="closeModal()">&times;</button></div>
+                        <!-- <div class="close" onclick="closeModal()">&times;</span> -->
+                        <h3>Explanation</h3>
+                       <p>I want to read a book from every country in the world.</p>
+                       <p>Books need some connection or significance for a country to be considered, e.g. cover significant historic phases, exhibit local communities or portrait outstanding people.</p>
+                       <p><span style="color: #09ff00;">Green</span> means completed, <span style="color: #ff0000;">Red</span> is open, and for <span style="color: #ffd900;">Yellow</span> countries I already decided what to read. I am currently reading the yellow/green striped country. Small countries are extended with a circle to facilitate clicking.</p>
+                        <h3>Countries</h3> <p id="statistic"><span id="statistic_total"></span> - <span id="statistic_read"
+                            style="color: #09ff00;">Read</span> / <span id="statistic_planned">Planned</span> / <span
+                            id="statistic_open">Open</span></p>
+                        <table id="tbl_overview">
+                            <thead>
+                                <tr>
+                                    <th padding=10>Status</th>
+                                    <th>Country</th>
+                                    <th>Name</th>
+                                    <th>Author</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_overview_body"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="container-fluid" id="country_container">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="map" class="svg-worldmap">
             <!-- viewBox="0 0 2894 1422"  -->
@@ -1285,55 +1341,7 @@
             </div>
         </div>
     </div>
-    <div class="footer" id="bs-footer-override">
-        <div class="container">
-            <div class="row">
-                <!-- Statistics Table Modal -->
-                <div id="tableModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div class="close_x_div"><button class=btn_close_x onclick="closeModal()">&times;</button></div>
-                        <!-- <div class="close" onclick="closeModal()">&times;</span> -->
-                        <h3>Overview</h3>
-                        <table id="tbl_overview">
-                            <thead>
-                                <tr>
-                                    <th padding=10>Status</th>
-                                    <th>Country</th>
-                                    <th>Name</th>
-                                    <th>Author</th>
-                                    <th>Rating</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbl_overview_body"></tbody>
-                        </table>
-                    </div>
-
-                </div>
-                <div class="col-lg-12  text-center" onclick="showTable()">
-                    <p id="statistic"><span id="statistic_total"></span> - <span id="statistic_read"
-                            style="color: #09ff00;">Read</span> / <span id="statistic_planned">Planned</span> / <span
-                            id="statistic_open">Open</span></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="https://github.com/rexorci" class="social-media-anchor">
-                        <img src="resources/GitHub-Mark-64px.png" alt="Github Profile" class="social-media-link">
-                    </a>
-                    <a href="https://www.linkedin.com/in/christoph-weber-x1337/" class="social-media-anchor">
-                        <img src="resources/linkedin.png" alt="Linkedin Profile" class="social-media-link">
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p class="footer-text">2020 Copyleft - Christoph Weber</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
@@ -1342,11 +1350,13 @@
     <script type="text/javascript" src='svg-pan-zoom.js'></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
-<!-- <footer class="page-footer">
-    <div class="row">
-        <div class="col-sm-4">
-            </div>
+<footer class="page-footer">
+    <div class="col-lg-12  text-center">
+       <p class="footer-text">Created by <a  href="https://github.com/weber-chris" class="github-link">Christoph Weber</a> </p>
     </div>
-</footer> -->
+    <!-- <div class="col-lg-12  text-center">
+        <a  href="https://github.com/weber-chris"><p class="footer-text">Created by <span class="github-link">Christoph Weber</span></p></a>
+    </div> -->
+</footer>
 
 </html>

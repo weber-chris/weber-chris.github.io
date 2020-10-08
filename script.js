@@ -11,8 +11,8 @@ $(window).on('orientationchange', function (e) {
 });
 
 $(window).on('click', function (e) {
-    if (e.target == tableModal) {
-        tableModal.style.display = "none";
+    if (e.target == detailModal) {
+        detailModal.style.display = "none";
     }
 })
 
@@ -66,6 +66,7 @@ function init_countries() {
 let country_dicts = {}
 function set_country_data(data) {
     country_dicts = data;
+    currently_reading();
     color_countries();
     calculate_statistc();
     create_overview_table();
@@ -85,7 +86,7 @@ function create_overview_table() {
     console.log(country_dicts[0])
 
     for (let i in country_dicts) {
-        dt_overview.row.add([country_dicts[i]['Read'], country_dicts[i]['Country'],  country_dicts[i]['Title'] , country_dicts[i]['Author'], country_dicts[i]['Rating']]).draw(false);
+        dt_overview.row.add([country_dicts[i]['Read'], country_dicts[i]['Country'], country_dicts[i]['Title'], country_dicts[i]['Author'], country_dicts[i]['Rating']]).draw(false);
     };
 }
 
@@ -288,6 +289,21 @@ function on_country_click(e, country_id) {
     return false;
 }
 
+function currently_reading() {
+    let total = country_dicts.length;
+
+    let currently_reading = "";
+    for (let i in country_dicts) {
+        if (country_dicts[i].Read == "Current") {
+            currently_reading = `${country_dicts[i].Country} - ${country_dicts[i].Title} (${country_dicts[i].Author})` ;
+            break;
+        }
+    }
+    let currently_reading_html = document.getElementById("currently-reading");
+
+    currently_reading_html.innerHTML = currently_reading;
+};
+
 function calculate_statistc() {
     let total = country_dicts.length;
 
@@ -324,10 +340,10 @@ function isMobileDevice() {
     return isMobile
 };
 
-var tableModal = document.getElementById("tableModal");
+var detailModal = document.getElementById("detail-modal");
 
 function showTable() {
-    tableModal.style.display = "block";
+    detailModal.style.display = "block";
     // $(document).ready( function () {
     //     $('#tbl_overview').DataTable({
     //         paging:false
@@ -336,6 +352,6 @@ function showTable() {
 };
 
 function closeModal() {
-    tableModal.style.display = "none";
+    detailModal.style.display = "none";
 
 }

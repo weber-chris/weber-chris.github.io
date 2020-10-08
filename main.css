@@ -1,51 +1,45 @@
+:root {
+    --main-color: #fe3636;
+    --main-color-disabled: #8c6b6b;
+    --background-color: #212529;
+    --hover-color: #ff0000;
+    --btn-color: #4367ca;
+    --btn-color-hover: #517fff;
+    --border-color: #f0f0f0;
+    padding-bottom: 60px;
+    position: relative;
+    min-height: 100%;
+    font-size: x-large;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 550 !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
 body{
     height: 99vh;
 }
-
-body .jumbotron{
-    height: 10vh;
-    background-color:white;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin: 0;
-    align-content: center;
-    display: flex;
-    align-items: center;
+.introduction{
+    margin: 0px 0px 10px 0px;
 }
 
-#bs-ovverride-h1{
-    font-size: 4.5vh; 
-    font-weight: 700;
+.page-footer{
+    margin: 10px 0px 0px 0px !important;
+}
+.footer-text {
+    color: black;
 }
 
+.btn { 
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+ }
+
+#currently-reading{margin:0px 0px 10px 0px !important;}
 #country_container{
     align-content: center;
     display: flex;
     height: 76vh;
-    margin: 0;
-}
-
-#bs-footer-override{
-    /* height: 13vh;    */
-    display: flex;
-    align-items: center;
-}
-
-img.social-media-link {
-    height: 5vh;
-    max-height: 3em;
-    margin-bottom: 0.4vh;
-}
-
-a.social-media-anchor{
-    z-index: 4;
-    position: relative;
-}
-
-.footer-text {
-    font-size: 12px;
-    text-align: center;
-    z-index: 4;
     margin: 0;
 }
 
@@ -161,7 +155,7 @@ a.social-media-anchor{
     z-index: 4;
 }
 
-#statistic{
+.intro{
     font-weight: bold;
     margin: 0px;
 }
@@ -170,7 +164,7 @@ a.social-media-anchor{
     color: #09ff00;
 }
 #statistic_planned{
-    color: #d1b200;
+    color: #ffd900;
 }
 #statistic_open{
     color: #ff0000;
@@ -193,7 +187,7 @@ a.social-media-anchor{
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
