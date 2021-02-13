@@ -40,10 +40,15 @@ h1, h2, h3, h4, h5, h6 {
 #country_container{
     align-content: center;
     display: flex;
-    height: 60vh;
+    height: 70vh;
     margin: 0;
 }
 
+@media (max-width: 700px ) {
+    #country_container{
+        height: 60vh;
+    }
+}
 .countryPath{
     fill: white;
     stroke: #000000;
