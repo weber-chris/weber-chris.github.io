@@ -183,6 +183,7 @@ $(document).ready(function () {
         zoomScaleSensitivity: 0.3,
         minZoom: 1,
         maxZoom: 40,
+        refreshRate: 30,        
         onUpdatedCTM: details_close,
         customEventsHandler: customEventsHandler
     });
