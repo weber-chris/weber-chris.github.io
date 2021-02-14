@@ -74,20 +74,49 @@ function set_country_data(data) {
 
 function create_overview_table() {
     const dt_overview = $('#tbl_overview').DataTable({
-        // paging: false,
-        searching: false,
-        order: [[1, 'asc']],
+        searching: true,
+        language: {search: ""},
+        order: [[0, 'asc'], [4, 'desc'], [1, 'asc']],
         // scrollResize: true,
         // scrollY: '60vh',
         // scrollCollapse: true,
-        // paging: false
+        paging: false
     });
-    // dt_overview.css({width:'100%'});
-    console.log(country_dicts[0])
 
     for (let i in country_dicts) {
-        dt_overview.row.add([country_dicts[i]['Read'], country_dicts[i]['Country'], country_dicts[i]['Title'], country_dicts[i]['Author'], country_dicts[i]['Rating']]).draw(false);
+        // Hidden column with status for initial ordering
+        let status_rank = 4;
+        if (country_dicts[i]['Read'] === 'Read') {
+            status_rank = 1;
+        } else if (country_dicts[i]['Read'] === 'Current') {
+            status_rank = 2;
+        } else if (country_dicts[i]['Read'] === 'Wanted') {
+            status_rank = 3;
+        }
+        let r = dt_overview.row.add(
+            [status_rank,
+                country_dicts[i]['Country'].replaceAll("_", " "),
+                country_dicts[i]['Title'],
+                country_dicts[i]['Author'],
+                country_dicts[i]['Rating']]
+        ).draw(false).node();
+
+        if (status_rank === 1) {
+            $(r).addClass('read-row');
+        } else if (status_rank === 2) {
+            $(r).addClass('current-row');
+        } else if (status_rank === 3) {
+            $(r).addClass('wanted-row');
+        } else {
+            $(r).addClass('open-row');
+        }
+        // dt_overview.row.add([country_dicts[i]['Read'], country_dicts[i]['Country'].replaceAll("_"," "), country_dicts[i]['Title'], country_dicts[i]['Author'], country_dicts[i]['Rating']]).draw(false);
     };
+
+    // We only need the status to order
+    dt_overview.column(0).visible(false);
+// set placeholder value of search box
+    $('#tbl_overview_filter').find('input').attr('placeholder', 'Search the Table...');
 }
 
 function color_countries() {
@@ -183,7 +212,7 @@ $(document).ready(function () {
         zoomScaleSensitivity: 0.3,
         minZoom: 1,
         maxZoom: 40,
-        refreshRate: 30,        
+        refreshRate: 30,
         onUpdatedCTM: details_close,
         customEventsHandler: customEventsHandler
     });
@@ -296,7 +325,7 @@ function currently_reading() {
     let currently_reading = "";
     for (let i in country_dicts) {
         if (country_dicts[i].Read == "Current") {
-            currently_reading = `${country_dicts[i].Country} - ${country_dicts[i].Title} (${country_dicts[i].Author})` ;
+            currently_reading = `${country_dicts[i].Country} - ${country_dicts[i].Title} (${country_dicts[i].Author})`;
             break;
         }
     }

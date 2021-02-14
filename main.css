@@ -44,11 +44,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-@media (max-width: 700px ) {
-    #country_container{
-        height: 60vh;
-    }
-}
 .countryPath{
     fill: white;
     stroke: #000000;
@@ -202,8 +197,45 @@ h1, h2, h3, h4, h5, h6 {
     width: 90vw; /* Could be more or less, depending on screen size */
   }
   
+  .dt-head-center {text-align: center;}
 
-  
+/* const READ_COLOR = "#a2f89f";
+const WANTED_COLOR = "#fae77c";
+const OPEN_COLOR = "#ffd9d9"; */
+
+.read-row{
+    background-color: #cdfdcc !important;
+} 
+.current-row{   
+    background: linear-gradient(90deg, rgba(255,244,181,1) 0%, rgba(205,253,204,1) 100%) !important;
+}
+.wanted-row{
+    background-color: #fff4b5 !important;
+}
+.open-row{
+    background-color: #ffecec !important;
+}
+.dataTables_filter {
+    width:100%;   
+    justify-content: center; 
+  }
+.dataTables_filter label{
+    width:100%;   
+    margin: 0;
+    text-align: center; 
+   }
+.dataTables_filter input{
+    width:60%;   
+    margin-left: 0  !important;
+    margin: 0;
+    max-width: 500px;
+    text-align: center;
+    }
+.dataTables_info{
+    width: 100%;
+    text-align: center;
+}
+
   .close:hover,
   .close:focus {
     color: black;
@@ -211,3 +243,18 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
   }
 
+  @media (max-width: 700px ) {
+    #country_container{
+        height: 60vh;
+    }
+    .modal-content {
+    font-size: small;
+    padding: 10px;
+    width: 95vw;
+    }
+    
+    table.dataTable tbody td{
+        padding: 5px 0 !important;
+        font-size: x-small
+    }
+}
