@@ -75,7 +75,7 @@ function set_country_data(data) {
 function create_overview_table() {
     const dt_overview = $('#tbl_overview').DataTable({
         searching: true,
-        language: {search: ""},
+        language: { search: "" },
         order: [[0, 'asc'], [4, 'desc'], [1, 'asc']],
         // scrollResize: true,
         // scrollY: '60vh',
@@ -115,7 +115,7 @@ function create_overview_table() {
 
     // We only need the status to order
     dt_overview.column(0).visible(false);
-// set placeholder value of search box
+    // set placeholder value of search box
     $('#tbl_overview_filter').find('input').attr('placeholder', 'Search the Table...');
 }
 
@@ -269,15 +269,26 @@ function on_country_click(e, country_id) {
 
     let country_name_text = country.getElementsByTagName("title")[0].textContent;
     let country_name = document.getElementById("country_name");
-
+    let book_summary_referrer = document.getElementById("book_summary_referrer");
+    
 
     // Fill Country Summary
     country_name.textContent = country_name_text;
     country_dict = get_country_dict(country_id);
-    book_title.textContent = country_dict.Title;
-    book_author.textContent = country_dict.Author;
-    book_summary_text.textContent = country_dict.Description;
-    book_cover.src = country_dict.Thumbnail;
+    if (country_dict.Title !== "") {
+        book_title.textContent = country_dict.Title;
+        book_author.textContent = country_dict.Author;
+        book_summary_text.textContent = country_dict.Description;
+        book_cover.src = country_dict.Thumbnail;
+        book_summary_referrer.style.visibility = 'collapse';
+    }else{
+        console.log("no title");        
+        book_title.textContent = 'No book selected - yet!';
+        book_author.textContent = '';
+        book_summary_text.textContent = 'I have not decided on a book to read from this country. Please go on and recommend one for me!';
+        book_cover.src = 'https://i.imgur.com/XUOWmPt.jpg';
+        book_summary_referrer.style.visibility = 'visible';
+    }
     set_star_rating(country_dict.Rating);
 
     div_width = $('#country_details').width();
