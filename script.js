@@ -281,7 +281,8 @@ function on_country_click(e, country_id) {
     country_name.textContent = country_name_text;
     country_dict = get_country_dict(country_id);
     if (country_dict.Title !== "") {
-        book_title.textContent = country_dict.Title;
+        book_title_content.textContent = country_dict.Title;
+        book_title_content.href = country_dict.Goodreads;
         book_author.textContent = country_dict.Author;
         book_summary_text.textContent = country_dict.Description;
         book_cover.src = country_dict.Thumbnail;
