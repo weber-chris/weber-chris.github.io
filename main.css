@@ -41,9 +41,6 @@ h4 {
     margin: 0px 0px 10px 0px;
 }
 
-/* .page-footer{
-    margin: 10px 0px 0px 0px !important;
-} */
 
 .footer-text {
     color: black;
@@ -300,9 +297,9 @@ const OPEN_COLOR = "#ffd9d9"; */
     #country_container {
         height: 70vh;
     }
-    .btn {
+    /* .btn {
         font-size: large !important;
-    }
+    } */
     .modal-content {
         padding: 20px;
         font-size: medium;
