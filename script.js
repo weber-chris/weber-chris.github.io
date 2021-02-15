@@ -405,3 +405,9 @@ function closeCountryDetail(){
     countryModal.style.display = "none";
     reset_country_color();
 }
+
+function closeCountryDetailMobile(){
+    if (isMobileDevice()){
+        closeCountryDetail();
+    }
+}
