@@ -18,14 +18,14 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 </head>
 
 <body>
 
-    <div id="invisible_div" onclick="details_close()"></div>
+    <!-- <div id="invisible_div" onclick="details_close()"></div> -->
     <!-- <div class="jumbotron vertical-center">
         <div class="container text-center">
             <h1 id="bs-ovverride-h1" class="display-4">Reading the World</h1>
@@ -38,9 +38,9 @@
         <!-- <h1 id="bs-ovverride-h1" class="display-4">Reading the World</h1> -->
         <h1>Reading the World</h1>
         <!-- <h4>Currently reading</h4> -->
-        <h5 id="currently-reading-header" class="text-muted">Click the countries to find out more! Currently reading:
-        </h5>
-        <h3 id="currently-reading">Ukraine - Picknick auf dem Eis (Andrey Kurkov)</h3>
+        <h4 id="currently-reading-header" class="text-muted">Click the countries to find out more! Currently reading:
+        </h4>
+        <h2 id="currently-reading">...</h2>
         <button class="btn btn-primary" onclick="showTable()">Details & Explanation</button>
         <a href="https://forms.gle/JFwjQM2dGFusLnJH8" class="btn btn-primary" target="_blank"
             rel="noopener noreferrer">Recommend a book</a>
@@ -49,11 +49,13 @@
         <div class="container">
             <div class="row">
                 <!-- Statistics Table Modal -->
-                <div id="detail-modal" class="modal">
+                <div id="detail_modal" class="modal-background">
+                    <!-- <div id="detail_modal" class="modal-background"> -->
 
                     <!-- Modal content -->
-                    <div class="modal-content text-center">
-                        <div class="close_x_div"><button class=btn_close_x onclick="closeModal()">&times;</button></div>
+                    <div id="detail_modal_content" class="text-center modal-content">
+                        <div class="close_x_div"><button class="btn_close_x" onclick="closeModal()">&times;</button>
+                        </div>
                         <!-- <div class="close" onclick="closeModal()">&times;</span> -->
                         <h3>Explanation</h3>
                         <p>I want to read a book from every country in the world.</p>
@@ -86,7 +88,41 @@
                 </div>
             </div>
         </div>
+
+        <div id="country_details" class="modal-background">
+            <!-- <div id="country_details" class="modal-background"> -->
+            <div id="country_details_content" class="modal-content ">
+                <div class="close_x_div">
+                    <button class=btn_close_x onclick="closeCountryDetail()">&times;</button>
+                </div>
+                <div class="d-flex ">
+                    <div id="book_img">
+                        <img id="book_cover" />
+                    </div>
+                    <div id="book_metadata">
+                        <p id="country_name"></p>
+                        <p id="book_title"></p>
+                        <p id="book_author"></p>
+                        <div id="rating_div">
+                            <span class="fa"></span>
+                            <span class="fa"></span>
+                            <span class="fa"></span>
+                            <span class="fa"></span>
+                            <span class="fa"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="book_summary">
+                    <p id="book_summary_text"></p>
+                    <div id="book_summary_referrer" class="text-center">
+                        <a href="https://forms.gle/JFwjQM2dGFusLnJH8" class="btn btn-primary" target="_blank"
+                            rel="noopener noreferrer">Recommend a book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="container-fluid" id="country_container">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="map" class="svg-worldmap">
             <!-- viewBox="0 0 2894 1422"  -->
@@ -931,7 +967,7 @@
                 <title>Tonga</title>
             </path>
         </svg>
-        <div id="country_details" onclick="details_close()">
+        <!-- <div id="country_details" onclick="details_close()">
             <div class="close_x_div"><button class=btn_close_x>&times;</button></div>
             <div id="book_img">
                 <img id="book_cover" />
@@ -955,7 +991,7 @@
                         rel="noopener noreferrer">Recommend a book</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 

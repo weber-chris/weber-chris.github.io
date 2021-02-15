@@ -14,6 +14,10 @@ $(window).on('click', function (e) {
     if (e.target == detailModal) {
         detailModal.style.display = "none";
     }
+    if (e.target == countryModal) {
+        countryModal.style.display = "none";
+        reset_country_color();
+    }
 })
 
 document.addEventListener("keyup", function (event) {
@@ -24,7 +28,8 @@ document.addEventListener("keyup", function (event) {
     var key = event.key || event.keyCode;
 
     if (key === "Escape" || key === "Esc" || key === 27) {
-        $("#country_details").hide();
+        countryModal.style.display = "none";
+        reset_country_color();
     }
 });
 
@@ -49,11 +54,11 @@ function reset_country_color() {
     }
 }
 
-function details_close() {
-    reset_country_color();
-    $("#country_details").hide();
-    $("#invisible_div").hide();
-}
+// function details_close() {
+//     reset_country_color();
+//     $("#country_details").hide();
+//     $("#invisible_div").hide();
+// }
 
 function init_countries() {
     let spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ekFxb2alTcKRRemIsXoG8Un41cRW4q19HC4iEstOs7U/pubhtml";
@@ -213,7 +218,7 @@ $(document).ready(function () {
         minZoom: 1,
         maxZoom: 40,
         refreshRate: 30,
-        onUpdatedCTM: details_close,
+        // onUpdatedCTM: details_close,
         customEventsHandler: customEventsHandler
     });
 
@@ -259,18 +264,18 @@ function get_country_dict(country_name) {
 function on_country_click(e, country_id) {
     reset_country_color();
     // Information from DOM Elements
-    let left = parseInt(e.clientX);
-    let top = parseInt(e.clientY);
+    // let left = parseInt(e.clientX);
+    // let top = parseInt(e.clientY);
     // let left = e.clientX + "px";
     // let top = e.clientY + "px";
     current_country = country_id;
-    let country_details = document.getElementById("country_details");
+    // let country_details = document.getElementById("country_details");
     let country = document.getElementById(country_id);
 
     let country_name_text = country.getElementsByTagName("title")[0].textContent;
     let country_name = document.getElementById("country_name");
     let book_summary_referrer = document.getElementById("book_summary_referrer");
-    
+
 
     // Fill Country Summary
     country_name.textContent = country_name_text;
@@ -280,35 +285,36 @@ function on_country_click(e, country_id) {
         book_author.textContent = country_dict.Author;
         book_summary_text.textContent = country_dict.Description;
         book_cover.src = country_dict.Thumbnail;
-        book_summary_referrer.style.visibility = 'collapse';
-    }else{
-        console.log("no title");        
+        book_summary_referrer.style.display = 'none';
+        // book_summary_referrer.style.visibility = 'collapse';
+    } else {
         book_title.textContent = 'No book selected - yet!';
         book_author.textContent = '';
         book_summary_text.textContent = 'I have not decided on a book to read from this country. Please go on and recommend one for me!';
         book_cover.src = 'https://i.imgur.com/XUOWmPt.jpg';
-        book_summary_referrer.style.visibility = 'visible';
+        book_summary_referrer.style.display = 'block';
+        // book_summary_referrer.style.visibility = 'visible';
     }
     set_star_rating(country_dict.Rating);
 
-    div_width = $('#country_details').width();
-    div_height = $('#country_details').height();
+    // div_width = $('#country_details').width();
+    // div_height = $('#country_details').height();
 
-    max_width = parseInt(window.innerWidth);
-    max_height = parseInt(window.innerHeight);
+    // max_width = parseInt(window.innerWidth);
+    // max_height = parseInt(window.innerHeight);
 
 
     // Reset position to appear at Mouse Cursor
-    if (div_width + left < max_width) {
-        country_details.style.left = left + "px";
-    } else {
-        country_details.style.left = max_width - div_width - 5 + "px";
-    }
-    if (div_height + top < max_height) {
-        country_details.style.top = top + "px";
-    } else {
-        country_details.style.top = max_height - div_height - 5 + "px";
-    }
+    // if (div_width + left < max_width) {
+    //     country_details.style.left = left + "px";
+    // } else {
+    //     country_details.style.left = max_width - div_width - 5 + "px";
+    // }
+    // if (div_height + top < max_height) {
+    //     country_details.style.top = top + "px";
+    // } else {
+    //     country_details.style.top = max_height - div_height - 5 + "px";
+    // }
 
     // Highlight selected country
     if (country_dict.Read == "Read") {
@@ -324,9 +330,12 @@ function on_country_click(e, country_id) {
     } else {
         country.style.fill = OPEN_COLOR_HIGHLIGHT;
     }
-
-    $("#country_details").show();
-    $("#invisible_div").show();
+    // let dxt =  document.getElementById("country_details")
+    // dxt.style.display = "block";
+    // detailModal.style.display = "block";
+    $("#country_details").css('display', 'block');
+    // $("#country_details").show();
+    // $("#invisible_div").show();
     return false;
 }
 
@@ -381,18 +390,18 @@ function isMobileDevice() {
     return isMobile
 };
 
-var detailModal = document.getElementById("detail-modal");
+var detailModal = document.getElementById("detail_modal");
 
 function showTable() {
     detailModal.style.display = "block";
-    // $(document).ready( function () {
-    //     $('#tbl_overview').DataTable({
-    //         paging:false
-    //     });
-    // } );
 };
 
 function closeModal() {
     detailModal.style.display = "none";
+}
 
+var countryModal = document.getElementById("country_details");
+function closeCountryDetail(){    
+    countryModal.style.display = "none";
+    reset_country_color();
 }

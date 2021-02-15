@@ -9,94 +9,117 @@
     /* padding-bottom: 60px; */
     position: relative;
     min-height: 100%;
-    font-size: x-large;
+    font-size: small;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: 550 !important;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* body{ */
-    /* height: 99vh; */
-/* } */
-.introduction{
+h1 {
+    margin-top: 20px !important;
+}
+
+h2 {
+    margin-top: 10px !important;
+    font-size: x-large !important;
+}
+
+h3 {
+    margin-top: 10px !important;
+    font-size: large !important;
+}
+
+h4 {
+    margin-top: 10px !important;
+    font-size: small !important;
+}
+
+.introduction {
     margin: 0px 0px 10px 0px;
 }
 
 /* .page-footer{
     margin: 10px 0px 0px 0px !important;
 } */
+
 .footer-text {
     color: black;
 }
 
-.btn { 
+.btn {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
- }
+}
 
-#currently-reading{margin:0px 0px 10px 0px !important;}
+#currently-reading {
+    margin: 0px 0px 10px 0px !important;
+}
 
-#country_container{
+#country_container {
     align-content: center;
     display: flex;
-    height: 70vh;
+    height: 60vh;
     margin: 0;
 }
 
-.countryPath{
+.countryPath {
     fill: white;
     stroke: #000000;
     stroke-width: "0.7998829988299883";
     stroke-opacity: "1";
 }
 
-#invisible_div {
-    /* background-color: rebeccapurple; */
-    opacity: 100%;
+/* #invisible_div { */
+
+/* background-color: rebeccapurple; */
+
+/* opacity: 100%;
     width: 100%;
     height: 100%;
     display: none;
     z-index: 2;
-    position: fixed;
-}
+    position: fixed; */
+
+/* } */
 
 #map {
     z-index: 3;
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
-    width:90%;
+    width: 90%;
     height: max-content;
-    height:100%;
+    height: 100%;
     /* height: 70vh; */
     margin: 0 auto;
 }
 
-#country_details {
+/* #country_details {
     background-color: #ffffff;
     width: 24em;
+    max-width: 98%;
     position: absolute;
+    margin: 0;
     display: none;
     border: 1px solid rgb(117, 117, 117);
     z-index: 5;
-}
+} */
 
-.close_x_div{
+.close_x_div {
     top: 5px;
     right: 5px;
     position: absolute;
 }
 
-.btn_close_x{
+.btn_close_x {
     border-width: 0;
     background: none;
 }
 
 #book_img {
-    /* set to fixed dimensions, otherwise we can't calculate width/height because of image loading */
-    height: 9.5em;
-    width: 6.5em;
-    float: left;
+    width: 36%;
+    object-fit: scale-down;
     padding: 0px;
 }
 
@@ -106,44 +129,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #book_metadata {
-    height: 41%;
-    width: 67%;
-    float: left;
+    width: 64%;
     padding-top: 10px;
+    padding-left: 10px;
 }
 
 #country_name {
-    font-size: 12px;
-    padding-left: 10px;
+    font-size: normal;
 }
 
 #book_title {
-    font-size: 14px;
-    padding-left: 10px;
+    font-size: larger;
     font-weight: bold;
 }
 
 #book_author {
-    padding-left: 10px;
-    font-size: 12px;
+    font-size: normal;
 }
 
 #rating_div {
     float: left;
-    font-size: 10px;
-    padding-left: 10px;
-}
-
-#avg_rating {
-    font-size: 12px;
-    padding-left: 2px;
+    font-size: normal;
+    margin-left: 2px
 }
 
 #book_summary {
-    /* max-height: 59%; */
+    font-size: normal;
     width: 100%;
     float: left;
-    padding: 15px;
+    padding-top: 15px;
     text-align: justify;
 }
 
@@ -151,110 +165,186 @@ h1, h2, h3, h4, h5, h6 {
     color: orange;
 }
 
-#linked_a{
+#linked_a {
     position: relative;
     z-index: 4;
 }
 
-.intro{
+.intro {
     font-weight: bold;
     margin: 0px;
 }
 
-#statistic_read{
+#statistic_read {
     color: #09ff00;
 }
-#statistic_planned{
+
+#statistic_planned {
     color: #ffd900;
 }
-#statistic_open{
+
+#statistic_open {
     color: #ff0000;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+.modal-background {
+    display: none;
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
     overflow-y: initial !important;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+    /* .modal-content { */
     background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    height: 90vh;
     overflow-y: auto;
-    width: 90vw; /* Could be more or less, depending on screen size */
-  }
-  
-  .dt-head-center {text-align: center;}
+}
+
+#detail_modal_content {
+    width: 90vw;
+    height: 90vh;
+    margin: 5% auto;
+}
+
+/* Modal Content/Box */
+
+#country_details_content {
+    width: 24em;
+    max-height: 90%;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.dt-head-center {
+    text-align: center;
+}
 
 /* const READ_COLOR = "#a2f89f";
 const WANTED_COLOR = "#fae77c";
 const OPEN_COLOR = "#ffd9d9"; */
 
-.read-row{
+.read-row {
     background-color: #cdfdcc !important;
-} 
-.current-row{   
-    background: linear-gradient(90deg, rgba(255,244,181,1) 0%, rgba(205,253,204,1) 100%) !important;
 }
-.wanted-row{
+
+.current-row {
+    background: linear-gradient(90deg, rgba(255, 244, 181, 1) 0%, rgba(205, 253, 204, 1) 100%) !important;
+}
+
+.wanted-row {
     background-color: #fff4b5 !important;
 }
-.open-row{
+
+.open-row {
     background-color: #ffecec !important;
 }
+
 .dataTables_filter {
-    width:100%;   
-    justify-content: center; 
-  }
-.dataTables_filter label{
-    width:100%;   
+    width: 100%;
+    justify-content: center;
+}
+
+.dataTables_filter label {
+    width: 100%;
     margin: 0;
-    text-align: center; 
-   }
-.dataTables_filter input{
-    width:60%;   
-    margin-left: 0  !important;
+    text-align: center;
+}
+
+.dataTables_filter input {
+    width: 60%;
+    margin-left: 0 !important;
     margin: 0;
     max-width: 500px;
     text-align: center;
-    }
-.dataTables_info{
+}
+
+.dataTables_info {
     width: 100%;
     text-align: center;
 }
 
-  .close:hover,
-  .close:focus {
+.close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  @media (max-width: 700px ) {
-    #country_container{
-        height: 60vh;
+@media (min-height: 800px) {
+    #country_container {
+        height: 70vh;
+    }
+}
+
+@media (min-width: 900px) {
+    #country_container {
+        height: 70vh;
+    }
+    .btn {
+        font-size: large !important;
     }
     .modal-content {
-    font-size: small;
-    padding: 10px;
-    width: 95vw;
+        padding: 20px;
+        font-size: medium;
     }
+    h3 {
+        font-size: x-large !important;
+    }
+    #country_details_content {
+        width: 32em;
+    }
+
+    #book_img {
+        width: 25%;
+    }    
     
-    table.dataTable tbody td{
+    #book_metadata {
+        width: 75%;
+    }
+
+}
+
+/* #country_details_content {
+    width: 36em;
+    max-height: 90%;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+} */
+
+/* .modal-content {
+        font-size: small;
+        padding: 10px;
+        width: 95vw;
+    }
+    table.dataTable tbody td {
         padding: 5px 0 !important;
         font-size: x-small
     }
-}
+    #book_summary {
+        font-size: 12px;
+    }
+}  */
