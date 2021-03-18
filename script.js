@@ -289,7 +289,8 @@ function on_country_click(e, country_id) {
         book_summary_referrer.style.display = 'none';
         // book_summary_referrer.style.visibility = 'collapse';
     } else {
-        book_title.textContent = 'No book selected - yet!';
+        book_title_content.textContent = 'No book selected - yet!';
+        book_title_content.href = 'https://forms.gle/JFwjQM2dGFusLnJH8';
         book_author.textContent = '';
         book_summary_text.textContent = 'I have not decided on a book to read from this country. Please go on and recommend one for me!';
         book_cover.src = 'https://i.imgur.com/XUOWmPt.jpg';
