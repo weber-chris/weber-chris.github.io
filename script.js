@@ -61,13 +61,21 @@ function reset_country_color() {
 // }
 
 function init_countries() {
-    let spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ekFxb2alTcKRRemIsXoG8Un41cRW4q19HC4iEstOs7U/pubhtml";
-    Tabletop.init({
-        key: spreadsheet_url,
-        callback: set_country_data,
-        simpleSheet: true
+    let spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ekFxb2alTcKRRemIsXoG8Un41cRW4q19HC4iEstOs7U/pub?output=csv";
+    Papa.parse(spreadsheet_url, {
+        download: true,
+        header: true,
+        complete: set_country_data
     })
 }
+// function init_countries() {
+//     let spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ekFxb2alTcKRRemIsXoG8Un41cRW4q19HC4iEstOs7U/pubhtml";
+//     Tabletop.init({
+//         key: spreadsheet_url,
+//         callback: set_country_data,
+//         simpleSheet: true
+//     })
+// }
 let country_dicts = {}
 function set_country_data(data) {
     country_dicts = data;
