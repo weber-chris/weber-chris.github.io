@@ -78,7 +78,8 @@ function init_countries() {
 // }
 let country_dicts = {}
 function set_country_data(data) {
-    country_dicts = data;
+    console.log(data);
+    country_dicts = data.data;
     currently_reading();
     color_countries();
     calculate_statistc();
