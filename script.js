@@ -352,16 +352,16 @@ function on_country_click(e, country_id) {
 function currently_reading() {
     let total = country_dicts.length;
 
-    let currently_reading = "";
+    let curr_read = "";
     for (let i in country_dicts) {
         if (country_dicts[i].Read == "Current") {
-            currently_reading = `${country_dicts[i].Country} - ${country_dicts[i].Title} (${country_dicts[i].Author})`;
+            curr_read = `${country_dicts[i].Country.replaceAll("_"," ")} - ${country_dicts[i].Title} (${country_dicts[i].Author})`;
             break;
         }
     }
     let currently_reading_html = document.getElementById("currently-reading");
 
-    currently_reading_html.innerHTML = currently_reading;
+    currently_reading_html.innerHTML = curr_read;
 };
 
 function calculate_statistc() {
